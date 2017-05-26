@@ -24,12 +24,12 @@ interface ICommand
   function onCommand( $name, $args );
 }
 
-class UserCommand implements ICommand
+class SMSCommand implements ICommand
 {
   public function onCommand( $name, $args )
   {
-    if ( $name != 'addUser' ) return false;
-    echo( "UserCommand handling 'addUser'\n" );
+    if ( $name != 'sms' ) return false;
+    echo( "SMSCommand handling 'SMS'\n" );
     return true;
   }
 }
@@ -45,7 +45,7 @@ class MailCommand implements ICommand
 }
 
 $cc = new CommandChain();
-$cc->addCommand( new UserCommand() );
+$cc->addCommand( new SMSCommand() );
 $cc->addCommand( new MailCommand() );
-$cc->runCommand( 'addUser', null );
+$cc->runCommand( 'sms', null );
 $cc->runCommand( 'mail', null );

@@ -4,7 +4,7 @@ interface programer
   function work();
 }
 
-class Golang implements programer
+class employer implements programer
 {
   private $id;
   public function __construct($id) {
@@ -13,18 +13,18 @@ class Golang implements programer
 
   public function work()
   {
-    return "i use golang coding coding coding...\n";
+    return "Id:$this->id startd work...\n";
   }
 }
 
 class programerFactory
 {
-  public static function Create( $id )
+  public static function Create($id)
   {
-    return new Golang( $id );
+    return new employer($id);
   }
 }
 
-$me = programerFactory::Create(1);
+$me = programerFactory::Create(2);
 echo $me->work();
 ?>
